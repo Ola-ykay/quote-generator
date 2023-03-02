@@ -9,8 +9,11 @@
 </div>
 <div class="btns">
 <button @click="getQuote">Generate Quote</button>
-<button @click="copyQuote">Copy</button>
-<div v-if="showCopiedText" class="copiedText">Copied</div>
+<div>
+<button v-if="!showCopiedText"  @click="copyQuote">Copy Quote</button>
+<button v-else>Copied</button>
+</div>
+
 </div>
 </div>
 </template>
@@ -50,7 +53,7 @@ export default {
                 // window.alert('copied!');
                 setTimeout(() => {
                     this.showCopiedText = false;
-                }, 2000);
+                }, 1000);
             }).catch(err => {
                 console.log(err);
             });
@@ -121,27 +124,16 @@ button{
 button:hover{
     background: #00416A33;
     color: #00416A;
-    font-weight: bold;
 }
-.copiedText{
-  position: fixed;
-  top: 50%;
-  left: 59%;
-  color: #00416A;
-  font-size: .9rem; 
+button:focus{
+    outline: none;
 }
+
 
 @media screen and (max-width: 600px){
     .quote-generator{
         width: 70%;
         height: 40vh;
-    }
-    .copiedText{
-        position: relative;
-       left: 15%;
-       top: -37%;
-    /* transform: translateX(-50%); */
-    font-size: 0.8rem;
     }
     .quote-card p{
         font-size: 0.8rem;
