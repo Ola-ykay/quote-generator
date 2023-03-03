@@ -5,7 +5,8 @@
 </div>
 <div v-else class="quote-card">
     <p>'{{ quote }}'</p>
-    <h3><bold>-</bold>{{ author }}</h3>
+    <h3><em>-</em> {{ author }}</h3>
+   
 </div>
 <div class="btns">
 <button @click="getQuote">Generate Quote</button>
